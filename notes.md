@@ -15,4 +15,14 @@ Linked List:
     - Inserting an element into a linked list takes O(1) time
 
 6. ADD A NODE AT BEGINNING:
-    - the head node represents the whole
+    - the head node represents the whole list so when you add a node at the front, you have to update it as the head
+    - first, initialize new node
+    - link new node to original head node
+    - assign new node as head
+
+7. DELETE OPERATION - for singly linked list
+    - find the node that you want to delete previous node and it's next node ( find next node with reference field, to find prev node have to traverse linked list from head to the node O(n). Time complexity of deleting a node in singly linked list is O(N) time. The space complexity is O(1) because we only need constant space to store the pointers.
+    - link the prev node to the next node ( now the node in between them doesn't exist in the link)
+
+    - TO DELETE FIRST NODE:
+        - just assign the seconde node as the head node
