@@ -83,19 +83,24 @@ class MyLinkedList
             add_at_head(val)
             return
         end
+
         if index == @length
             add_at_tail(val)
             return
         end
+
         if index > @length
             return
         end
+
         node = Node.new(val)
         cur = @head
+
         while index > 1
             cur = cur.next
             index = index - 1
         end
+        
         node.next = cur.next
         cur.next = node
         @length = @length + 1
