@@ -26,3 +26,15 @@ Linked List:
 
     - TO DELETE FIRST NODE:
         - just assign the seconde node as the head node
+
+
+   =========================================================================================
+   Binary Trees ( binary is most common tree, but is defined by nodes that have at max 2 children):
+   1. Traverse a tree:
+    - Pre-order traversal:
+        visit root node first, traverse left subtree and then right
+    - In-order traversal:
+        traverse left subtree first (start at lowest left node and work way up to     root, then go to root and then traverse right subtree ( can gather all data from tree)
+    - Post-order traveral:
+        traverse left subtree first, then right subtree and then root
+        when you delete a node, it is in post-order traversal ( you delete it's left child, then its right childe and then the node itself), is used widely to write programs to parse post order expression

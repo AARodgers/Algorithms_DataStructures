@@ -1,9 +1,10 @@
 class Node
-    attr_accessor :next, :value
+    attr_accessor :next
+    attr_reader :value
 
     def initialize(value)
         @value = value
-        @next = next
+        @next = nil
     end
 
     def to_s
