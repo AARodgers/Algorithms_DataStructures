@@ -38,3 +38,6 @@ Linked List:
     - Post-order traveral:
         traverse left subtree first, then right subtree and then root
         when you delete a node, it is in post-order traversal ( you delete it's left child, then its right childe and then the node itself), is used widely to write programs to parse post order expression
+
+    - Breadth first traversal: goes from left to rigth each tree level at a time
+    - 
