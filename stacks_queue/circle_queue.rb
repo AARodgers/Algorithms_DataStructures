@@ -26,10 +26,10 @@ require 'pry'
 class MyCircularQueue
     attr_accessor :front, :length, :rear, :q
 
-    =begin
-        Initialize your data structure here. Set the size of the queue to be k.
-        :type k: Integer
-    =end
+    # =begin
+    #     Initialize your data structure here. Set the size of the queue to be k.
+    #     :type k: Integer
+    # =end
         def initialize(k)
             @q = Array.new(k);
             @length = 0;
@@ -38,11 +38,11 @@ class MyCircularQueue
         end
 
 
-    =begin
-        Insert an element into the circular queue. Return true if the operation is successful.
-        :type value: Integer
-        :rtype: Boolean
-    =end
+    # =begin
+    #     Insert an element into the circular queue. Return true if the operation is successful.
+    #     :type value: Integer
+    #     :rtype: Boolean
+    # =end
         def en_queue(value)
             if is_full() == true
                 return false
@@ -55,10 +55,10 @@ class MyCircularQueue
         end
 
 
-    =begin
-        Delete an element from the circular queue. Return true if the operation is successful.
-        :rtype: Boolean
-    =end
+    # =begin
+    #     Delete an element from the circular queue. Return true if the operation is successful.
+    #     :rtype: Boolean
+    # =end
         def de_queue()
             if is_empty() == true
                 return false
@@ -70,43 +70,43 @@ class MyCircularQueue
         end
 
 
-    =begin
-        Get the front item from the queue.
-        :rtype: Integer
-    =end
+    # =begin
+    #     Get the front item from the queue.
+    #     :rtype: Integer
+    # =end
         def front()
             return is_empty() ? -1 : @q[@front];
         end
 
 
-    =begin
-        Get the last item from the queue.
-        :rtype: Integer
-    =end
+    # =begin
+    #     Get the last item from the queue.
+    #     :rtype: Integer
+    # =end
         def rear()
             return is_empty() ? -1 : @q[@rear];
         end
 
 
-    =begin
-        Checks whether the circular queue is empty or not.
-        :rtype: Boolean
-    =end
+    # =begin
+    #     Checks whether the circular queue is empty or not.
+    #     :rtype: Boolean
+    # =end
         def is_empty()
-           if @q.length == 0
-               true
+           if @length == 0
+            true
            else
-               false
+            false
            end
         end
 
 
-    =begin
-        Checks whether the circular queue is full or not.
-        :rtype: Boolean
-    =end
+    # =begin
+    #     Checks whether the circular queue is full or not.
+    #     :rtype: Boolean
+    # =end
         def is_full()
-            if @q.length == length
+            if @q.count == @length
                 true
             else
                 false
