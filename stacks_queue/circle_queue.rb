@@ -1,3 +1,4 @@
+require 'pry'
 # Your implementation should support following operations:
 
 # MyCircularQueue(k): Constructor, set the size of the queue to be k.
@@ -23,88 +24,94 @@
 # circularQueue.Rear();  // return 4
 
 class MyCircularQueue
+    attr_accessor :front, :length, :rear, :q
 
     =begin
-    Initialize your data structure here. Set the size of the queue to be k.
-    :type k: Integer
-=end
-    def initialize(k)
-        @queue = Array.new(k)
-        @head, @tail = 0, 0
-        @k = k
-    end
-
-
-=begin
-    Insert an element into the circular queue. Return true if the operation is successful.
-    :type value: Integer
-    :rtype: Boolean
-=end
-    def en_queue(value)
-
-        add_element = @queue.push(value)
-        if add_element
-            true
-        else
-            false
+        Initialize your data structure here. Set the size of the queue to be k.
+        :type k: Integer
+    =end
+        def initialize(k)
+            @q = Array.new(k);
+            @length = 0;
+            @front = 0;
+            @rear = -1;
         end
-    end
 
 
-=begin
-    Delete an element from the circular queue. Return true if the operation is successful.
-    :rtype: Boolean
-=end
-    def de_queue()
-        arr = @queue.delete("@head")
-        if arr
-            true
-        else
-            false
+    =begin
+        Insert an element into the circular queue. Return true if the operation is successful.
+        :type value: Integer
+        :rtype: Boolean
+    =end
+        def en_queue(value)
+            if is_full() == true
+                return false
+            end
+
+            @rear = (@rear +1) % (@q.length)
+            @q[@rear] = value
+            @length += 1
+            return true
         end
-    end
 
 
-=begin
-    Get the front item from the queue.
-    :rtype: Integer
-=end
-    def front()
-        @queue.first
-    end
+    =begin
+        Delete an element from the circular queue. Return true if the operation is successful.
+        :rtype: Boolean
+    =end
+        def de_queue()
+            if is_empty() == true
+                return false
+            end
 
-
-=begin
-    Get the last item from the queue.
-    :rtype: Integer
-=end
-    def rear()
-        @queue.last
-    end
-
-
-=begin
-    Checks whether the circular queue is empty or not.
-    :rtype: Boolean
-=end
-    def is_empty()
-       @tail = @head
-    end
-
-
-=begin
-    Checks whether the circular queue is full or not.
-    :rtype: Boolean
-=end
-    def is_full()
-        if @queue.count >= k.to_i
-            true
-        else
-            false
+            @front = (@front + 1) % (@q.length);
+            @length -= 1
+            return true;
         end
-    end
 
 
+    =begin
+        Get the front item from the queue.
+        :rtype: Integer
+    =end
+        def front()
+            return is_empty() ? -1 : @q[@front];
+        end
+
+
+    =begin
+        Get the last item from the queue.
+        :rtype: Integer
+    =end
+        def rear()
+            return is_empty() ? -1 : @q[@rear];
+        end
+
+
+    =begin
+        Checks whether the circular queue is empty or not.
+        :rtype: Boolean
+    =end
+        def is_empty()
+           if @q.length == 0
+               true
+           else
+               false
+           end
+        end
+
+
+    =begin
+        Checks whether the circular queue is full or not.
+        :rtype: Boolean
+    =end
+        def is_full()
+            if @q.length == length
+                true
+            else
+                false
+            end
+        end
 end
 
     # Your MyCircularQueue object will be instantiated and called as such:
