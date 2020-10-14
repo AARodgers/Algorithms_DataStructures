@@ -40,4 +40,16 @@ Linked List:
         when you delete a node, it is in post-order traversal ( you delete it's left child, then its right childe and then the node itself), is used widely to write programs to parse post order expression
 
     - Breadth first traversal: goes from left to rigth each tree level at a time
+    -
+
+===========================================================================================
+Stacks and Queues:
+- Queue: first in, first out: FIFO (first item will be processed first), new item is added at end of queue, deleting is called 'dequeue'. 'Enqueue' is when a new element is added to the queue.
+    - To implement a queue, we may use a dynamic array and an index pointing to the head of the queue.
+    - Circular Queue: you use pointers to show the first and last element so that when you enqueue or dequeue an element you an reuse that space, it's more efficient for memory
     - 
+
+
+-----------------------------------------------------------------------------------------
+- Stack: last in, first out:
+-
