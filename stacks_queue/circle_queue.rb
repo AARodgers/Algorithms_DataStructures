@@ -48,7 +48,7 @@ class MyCircularQueue
                 return false
             end
 
-            @rear = (@rear +1) % (@q.length)
+            @rear = (@rear + 1) % (@q.length)
             @q[@rear] = value
             @length += 1
             return true
@@ -64,9 +64,9 @@ class MyCircularQueue
                 return false
             end
 
-            @front = (@front + 1) % (@q.length);
+            @front = (@front + 1) % (@q.length)
             @length -= 1
-            return true;
+            return true
         end
 
 
@@ -75,7 +75,7 @@ class MyCircularQueue
     #     :rtype: Integer
     # =end
         def front()
-            return is_empty() ? -1 : @q[@front];
+            return is_empty() ? -1 : @q[@front]
         end
 
 
@@ -84,7 +84,7 @@ class MyCircularQueue
     #     :rtype: Integer
     # =end
         def rear()
-            return is_empty() ? -1 : @q[@rear];
+            return is_empty() ? -1 : @q[@rear]
         end
 
 
