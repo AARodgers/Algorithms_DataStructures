@@ -34,7 +34,7 @@ require 'pry'
 
 local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
 
-def remove_period
+def remove_plus_sign(local_names)
     names_minus_plus = []
     local_names.each { |name| names_minus_plus << name[/[^+]+/] }
     names_minus_plus
