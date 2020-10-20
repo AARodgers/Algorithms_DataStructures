@@ -14,23 +14,28 @@ require 'pry'
 # @param {String[]} emails
 # @return {Integer}
 
-# def num_unique_emails(emails)
-
-# end
 
 #need to slice off local name before @
 # remove all . from local name
 # remove everything after + for local name
 # compare strings
 
-emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+# emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 
-def get_local_name(emails)
-    local_names = []
-    emails.each { |email| local_names << email[/[^@]+/] }
-    local_names
-    binding.pry
+# def num_unique_emails(emails)
+#     local_name_arr = get_local_name(emails)
+# end
+
+# def get_local_name(emails)
+#     local_names = []
+#     emails.each { |email| local_names << email[/[^@]+/] }
+#     local_names
+# end
+
+local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
+
+def remove_period
+    names_minus_plus = []
+    local_names.each { |name| names_minus_plus << name[/[^+]+/] }
+    names_minus_plus
 end
-# local_names => ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
-
-
