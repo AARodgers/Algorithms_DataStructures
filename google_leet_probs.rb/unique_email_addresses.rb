@@ -26,8 +26,8 @@ def num_unique_emails(emails)
     local = get_local_name(emails)
     no_plus_sign = remove_plus_sign(local)
     period_removed = removes_period(no_plus_sign)
-    period_removed
-    binding.pry
+    unique_emails = period_removed.uniq.count
+    unique_emails
 end
 
 
@@ -53,4 +53,4 @@ def removes_period(no_plus_sign)
     no_period
 end
 
-num_unique_emails(emails)
+puts num_unique_emails(emails)
