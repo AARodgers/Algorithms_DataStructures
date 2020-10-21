@@ -26,10 +26,20 @@ def num_unique_emails(emails)
     local = get_local_name(emails)
     no_plus_sign = remove_plus_sign(local)
     period_removed = removes_period(no_plus_sign)
-    unique_emails = period_removed.uniq.count
-    unique_emails
+    local_name_count = period_removed.uniq.count
+    domain_name_count = num_domain_names(emails)
+    if local_name_count > domain_name_count
+        local_name_count
+    else
+        domain_name_count
+    end
 end
 
+def num_domain_names(emails)
+    domain_names = []
+    emails.each { |email| domain_names << email.split('@')[1] }
+    domain_names.uniq.count
+end
 
 def get_local_name(emails)
     local_names = []
