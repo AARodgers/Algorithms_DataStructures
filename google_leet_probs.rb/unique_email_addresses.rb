@@ -24,6 +24,9 @@ emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","t
 
 def num_unique_emails(emails)
     local = get_local_name(emails)
+    no_plus_sign = remove_plus_sign(local)
+    period_removed = removes_period(no_plus_sign)
+    binding.pry
 end
 
 
@@ -33,16 +36,25 @@ def get_local_name(emails)
     local_names
 end
 
-# local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
 
-def remove_plus_sign(local_names)
+
+# # local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
+
+def remove_plus_sign(local)
     names_minus_plus = []
-    local_names.each { |name| names_minus_plus << name[/[^+]+/] }
+    local.each { |name| names_minus_plus << name[/[^+]+/] }
     names_minus_plus
 end
 
-# names_minus_plus = ["test.email", "test.e.mail", "testemail"]
 
-def removes_period(names_minus_plus)
-    no_period = names_minus_plus.each { |name| puts name.delete"." }
+
+
+# # names_minus_plus = ["test.email", "test.e.mail", "testemail"]
+
+def removes_period(no_plus_sign)
+    no_period = []
+    no_plus_sign.each { |name| no_period << name.delete"." }
+    no_period
 end
+
+num_unique_emails(emails)
