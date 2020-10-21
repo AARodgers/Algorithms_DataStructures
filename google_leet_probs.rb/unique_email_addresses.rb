@@ -20,22 +20,29 @@ require 'pry'
 # remove everything after + for local name
 # compare strings
 
-# emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 
-# def num_unique_emails(emails)
-#     local_name_arr = get_local_name(emails)
-# end
+def num_unique_emails(emails)
+    local = get_local_name(emails)
+end
 
-# def get_local_name(emails)
-#     local_names = []
-#     emails.each { |email| local_names << email[/[^@]+/] }
-#     local_names
-# end
 
-local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
+def get_local_name(emails)
+    local_names = []
+    emails.each { |email| local_names << email[/[^@]+/] }
+    local_names
+end
+
+# local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
 
 def remove_plus_sign(local_names)
     names_minus_plus = []
     local_names.each { |name| names_minus_plus << name[/[^+]+/] }
     names_minus_plus
+end
+
+# names_minus_plus = ["test.email", "test.e.mail", "testemail"]
+
+def removes_period(names_minus_plus)
+    no_period = names_minus_plus.each { |name| puts name.delete"." }
 end
