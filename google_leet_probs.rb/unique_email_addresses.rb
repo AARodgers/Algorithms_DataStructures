@@ -73,10 +73,6 @@ require 'pry'
 #     end.uniq.length
 # end
 
-emails = ["test.email+alex@leetcode.com", "test.email@leetcode.com"]
-# emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
-
-
 # def num_unique_emails(emails)
 #     emails.map do |email|
 #         app_index = email.index('@')
@@ -94,7 +90,13 @@ emails = ["test.email+alex@leetcode.com", "test.email@leetcode.com"]
 #     end
 # end
 
-puts num_unique_emails(emails)
+emails = ["test.email+alex@leetcode.com", "test.email@leetcode.com"]
+# emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 
-# output: testemail+@leetcode.com
-# testemail@leetcode.com
+def num_unique_emails(emails)
+    emails.map do |email|
+        new_email = (email[/[^@]+/][/[^+]+/].gsub(".","")) + ('@' + email.split('@')[1])
+    end.uniq.length
+end
+
+puts num_unique_emails(emails)
