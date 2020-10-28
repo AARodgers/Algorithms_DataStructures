@@ -49,7 +49,8 @@ end
 puts is_isomorphic(s, t)
 
 # ? is set a gem? why need to put require 'set' to get it to work?
-# why can you iterate through a string? it's not an array? 
+# why can you iterate through a string? it's not an array?
+
 
 #Resource: https://www.educative.io/edpresso/how-to-check-if-two-strings-are-isomorphic
 # Two strings are isomorphic if one-to-one mapping is possible for every character of the first string to every character of the second string.
