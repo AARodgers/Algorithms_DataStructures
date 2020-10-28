@@ -1,3 +1,4 @@
+require "set"
 # Given two strings s and t, determine if they are isomorphic.
 
 # Two strings are isomorphic if the characters in s can be replaced to get t.
@@ -44,6 +45,10 @@ def is_isomorphic(s, t)
     end
     return true
 end
+
+puts is_isomorphic(s, t)
+
+# ? is set a gem? why need to put require 'set' to get it to work?
 
 #Resource: https://www.educative.io/edpresso/how-to-check-if-two-strings-are-isomorphic
 # Two strings are isomorphic if one-to-one mapping is possible for every character of the first string to every character of the second string.
