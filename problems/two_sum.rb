@@ -37,6 +37,8 @@ puts two_sum(nums,target)
 
 #where are you putting the array into the hash??
 # how can i get binding.pry to work to see the hash etc?
+# why need this line? what does it do? hash[n] = i, why not just hash[n]
+# why doesn't the function stop after the first correct value is found b. it says return?
 
 
 # Solution 3 Approach (FASTEST): One-pass Hash Table (* AS YOU ITERATE TO PUT THE ELEMENTS IN A HASH MAP, AT THE SAME TIME, CHECK TO SEE IF VALUE = TARGET - X)
