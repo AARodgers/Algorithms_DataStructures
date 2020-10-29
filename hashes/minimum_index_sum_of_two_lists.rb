@@ -1,3 +1,4 @@
+require 'pry'
 # Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
 
 # You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
@@ -19,27 +20,62 @@ list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun
 # @param {String[]} list2
 # @return {String[]}
 
+# Solution 1: (didn't pass all test)
+# def find_restaurant(list1, list2)
+#     restaurants = {}
+#     matches = {}
+
+#       # iterate through first list and set the index as the key value
+#     list1.each_with_index do |restaurant, index|
+#         restaurants[restaurant] = index
+#     end
+
+#       # since we only care about matches, if there is a match from the first list, we only add the index for where the match occurs
+#     list_match =
+#         (list2.each_with_index do | restaurant, index|
+#             if restaurants[restaurant]
+#                 matches[restaurant] = (restaurants[restaurant] + index)
+#             end
+#         end)
+
+#       # this will give us the lowest sum of the matched indexes
+#     # lowest_index_sum = matches.values.min
+
+#       # we now need to select the keys that match our lowest index sum
+#     # matches.keys.select {|match| lowest_index_sum == matches[match]}
+# end
+
+# Solution 2:
 def find_restaurant(list1, list2)
-    restaurants = {}
-    matches = {}
+    hash1 = {}
 
-      # iterate through first list and set the index as the key value
-    list1.each_with_index do |restaurant, index|
-        restaurants[restaurant] = index
-    end
+    #key is the resturant, value is the index
+    list1.each_with_index {|key, value| hash1[key] = value}
 
-      # since we only care about matches, if there is a match from the first list, we only add the index for where the match occurs
-    list2.each_with_index do | restaurant, index|
-        if restaurants[restaurant]
-            matches[restaurant] = (restaurants[restaurant] + index)
+    ans = [nil]
+    sum = 1.0/0.0 #infinity
+
+    list2.each_with_index do |name, idx|
+        if hash1.has_key?(name)
+            total = hash1[name] + idx
+            binding.pry
+            if total < sum
+                ans.clear
+                ans << name
+                sum = total
+            elsif total == sum
+                ans << name
+            end
         end
     end
 
-      # this will give us the lowest sum of the matched indexes
-    lowest_index_sum = matches.values.min
-
-      # we now need to select the keys that match our lowest index sum
-    matches.keys.select {|match| lowest_index_sum == matches[match]}
+    ans
 end
 
 puts find_restaurant(list1, list2)
+
+# how come if put: hash1 = list1.each_with_index {|key, value| hash1[key] = value}, it then throws error undefined method `has_key?' for ["Shogun", "Tapioca Express", "Burger King", "KFC"]:Array (NoMethodError)
+# how do you appropriatly assign a hash then?
+# nil in ans isn't necessary, so why put it there
+# when turn sum into just 1 and try running file, nothing happens why?
+#scope of hash1 and list2, how does list 2 equation know that hash1 exist? scope?
