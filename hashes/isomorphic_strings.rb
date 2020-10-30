@@ -48,7 +48,7 @@ end
 
 puts is_isomorphic(s, t)
 
-# ? is set a gem? why need to put require 'set' to get it to work?
+# ? is set a gem? why need to put require 'set' to get it to work? # how does it work, how and why does it only store unique chars? what if put in duplicates?
 # why can you iterate through a string? it's not an array?
 
 

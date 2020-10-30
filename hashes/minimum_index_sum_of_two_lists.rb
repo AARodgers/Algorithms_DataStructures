@@ -58,7 +58,6 @@ def find_restaurant(list1, list2)
     list2.each_with_index do |name, idx|
         if hash1.has_key?(name)
             total = hash1[name] + idx
-            binding.pry
             if total < sum
                 ans.clear
                 ans << name
