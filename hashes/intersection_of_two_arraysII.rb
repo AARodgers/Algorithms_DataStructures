@@ -14,9 +14,13 @@ require 'pry'
 
 # Example 1:
 # Input:
-nums1 = [1,2,2,1]
-nums2 = [2,2,3]
+# nums1 = [1,2,2,1]
+# nums2 = [2,2,3]
 # Output: [2,2]
+
+nums1 = [4, 9, 5]
+nums2 = [9, 4, 9, 8, 4]
+# expected: [4, 9]
 
 #Solution 1:
 def intersect(nums1, nums2)
@@ -37,12 +41,13 @@ def intersect(nums1, nums2)
             hash1[num] = 1
         end
     end
-    # hash1 = {2=>2, 3=>1}
 
+    #hash1 = {4=>1, 9=>1, 5=>1}
 
     arr = nums2.each do |num2|
         if hash1.has_key?(num2)
-            result << num2
+            result << num2 if hash1[num2] >= 1
+            hash1[num2] -= 1
         end
     end
     return result
@@ -54,7 +59,7 @@ end
 # nums1 = [4, 9, 5]
 # nums2 = [9, 4, 9, 8, 4]
 # expected: [4, 9]
-# output: [9]
+
 
 # def intersect(nums1, nums2)
 #     ans = []
