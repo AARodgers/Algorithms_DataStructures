@@ -1,3 +1,4 @@
+require 'set'
 # Given two arrays, write a function to compute their intersection.
 
 # Example 1:
@@ -32,6 +33,8 @@ def intersection(nums1, nums2)
     short_set = Set.new(nums1)
     nums2.each_with_object(Set.new) {|num, result| result << num if short_set.include?(num)}.to_a
 end
+
+
 #gets error: uninitialize constant Set ??? (need to make a Set class??) how to make this work?
 
 # Notes:

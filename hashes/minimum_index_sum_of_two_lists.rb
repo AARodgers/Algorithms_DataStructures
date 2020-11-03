@@ -53,7 +53,7 @@ def find_restaurant(list1, list2)
     list1.each_with_index {|key, value| hash1[key] = value}
 
     ans = [nil]
-    sum = 1.0/0.0 #infinity
+    sum = Float::INFINITY
 
     list2.each_with_index do |name, idx|
         if hash1.has_key?(name)

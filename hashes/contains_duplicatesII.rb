@@ -5,43 +5,61 @@ require 'pry'
 # Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
 # Example 1:
-
 # Input:
-nums = [1,2,3,1]
-k = 3
+# nums = [1,2,3,1]
+# k = 3
 # Output: true
+
 # Example 2:
-
-# Input: nums = [1,0,1,1], k = 1
+# Input:
+# nums = [1,0,1,1]
+# k = 1
 # Output: true
-# Example 3:
 
-# Input: nums = [1,2,3,1,2,3], k = 2
+# Example 3:
+# Input:
+nums = [1,2,3,1,2,3]
+k = 2
+
 # Output: false
 
 # @param {Integer[]} nums
 # @param {Integer} k
 # @return {Boolean}
 
+#Solution 1:
+# def contains_nearby_duplicate(nums, k)
+#     num_hash = Hash.new(0)
+#     left_p = 0
+
+#     nums.each do |num|
+#     return true if num_hash.has_key?(num)
+
+#     num_hash[num] = 0
+
+#     if num_hash.length > k
+#         num_hash.delete(nums[left_p])
+#         left_p += 1
+#     end
+#     end
+
+#     false
+# end
+
+#Solution 2:
 def contains_nearby_duplicate(nums, k)
-    num_hash = Hash.new(0)
-    left_p = 0
-
-    nums.each do |num|
-    return true if num_hash.has_key?(num)
-
-    num_hash[num] = 0
-
-    if num_hash.length > k
-        num_hash.delete(nums[left_p])
-        left_p += 1
+    seen = {}
+    nums.each_with_index do |n, i|
+        return true if seen[n] && i - seen[n] <= k
+        seen[n] = i
+        puts seen.inspect
     end
-    end
-
-    false
+    binding.pry
+    return false
 end
-
 puts contains_nearby_duplicate(nums, k)
+
+#???? why is the binding.pry output of seen {1=>3, 2=>4, 3=>5}, why doesn't it have each element and its index?
 
 # where do you atually insert the numbers into the hash?
 # note: it doesn't have to see if there are duplicates, only return true if hash has a key that matches nums in iteration

@@ -1,3 +1,5 @@
+require 'pry'
+
 # Design HashSet
 
 # Solution
@@ -59,6 +61,8 @@ class MyHashSet
             !!@container[key]
         end
 end
+
+binding.pry
 
 #how do i create an instance of a new hash when I run this file?
 # why is the Hash initialized as an ARRAY??

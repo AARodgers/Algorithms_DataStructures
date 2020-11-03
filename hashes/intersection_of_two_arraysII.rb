@@ -50,7 +50,7 @@ def intersect(nums1, nums2)
             hash1[num2] -= 1
         end
     end
-    return result
+    result
 end
 
 #Solution 2 ( with pointers and sorting)
@@ -85,11 +85,11 @@ end
 # end
 
 
-puts intersect(nums1, nums2)
+puts intersect(nums1, nums2).inspect
 
-# why doesn't this return an array in terminal but does when you inspect?
+# why doesn't this return an array in terminal but does when you inspect? (ruby prints each element in array on new line, need to use inspect to see if array)
 
-#what is the difference between just putting result and return result?
+#what is the difference between just putting result and return result? ( there is no difference)
 
 # Solution
 # If an interviewer gives you this problem, your first question should be -
