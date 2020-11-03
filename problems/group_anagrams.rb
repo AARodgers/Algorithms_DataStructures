@@ -37,7 +37,7 @@ def group_anagrams(strs)
     end
   end
 
-  puts grouped_anagrams.values.inspect
+  grouped_anagrams.values
 end
 
 group_anagrams(strs)
