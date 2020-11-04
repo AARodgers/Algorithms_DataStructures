@@ -14,84 +14,7 @@ require 'pry'
 # @param {String[]} emails
 # @return {Integer}
 
-
-#need to slice off local name before @
-# remove all . from local name
-# remove everything after + for local name
-# compare strings
-
-# def num_unique_emails(emails)
-#     local = get_local_name(emails)
-#     no_plus_sign = remove_plus_sign(local)
-#     period_removed = removes_period(no_plus_sign)
-#     local_name_count = period_removed.uniq.count
-#     domain_name_count = num_domain_names(emails)
-#     if local_name_count > domain_name_count
-#         local_name_count
-#     else
-#         domain_name_count
-#     end
-# end
-
-# def num_domain_names(emails)
-#     domain_names = []
-#     emails.each { |email| domain_names << email.split('@')[1] }
-#     domain_names.uniq.count
-# end
-
-# def get_local_name(emails)
-#     local_names = []
-#     emails.each { |email| local_names << email[/[^@]+/] }
-#     local_names
-# end
-
-# # # local_names = ["test.email+alex", "test.e.mail+bob.cathy", "testemail+david"]
-
-# def remove_plus_sign(local)
-#     names_minus_plus = []
-#     local.each { |name| names_minus_plus << name[/[^+]+/] }
-#     names_minus_plus
-# end
-
-# # no_plus_sign = ["test.email", "test.e.mail", "testemail"]
-
-# def removes_period(no_plus_sign)
-#     no_period = []
-#     no_plus_sign.each { |name| no_period << name.delete(".") }
-#     no_period
-# end
-
-# puts num_unique_emails(emails)
-
-# def num_unique_emails(emails)
-#     emails.map do |mail|
-#         at_index = mail.index('@')
-#         tail = mail[at_index..-1]
-#         head = mail[0...at_index].gsub(".","")
-#         plus_index = head.index('+')
-#         plus_index != nil ? head[0...plus_index]+tail : head+tail
-#     end.uniq.length
-# end
-
-# def num_unique_emails(emails)
-#     emails.map do |email|
-#         app_index = email.index('@')
-#         domain = email[app_index..-1]
-#         local = email[0..app_index - 1].gsub(".", "")
-#         plus_index = email.index('+')
-#         local_minus_plus = local[/[^+]+/]
-#         new_emails = []
-#         new_emails << local_minus_plus + domain
-#         new_emails.uniq.length
-#         # if plus_index != nil
-#         #     new_emails = local_minus_plus + domain
-#         # end
-#         # new_emails
-#     end
-# end
-
 emails = ["test.email+alex@leetcode.com", "test.email@leetcode.com"]
-# emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 
 def num_unique_emails(emails)
     emails.map do |email|
@@ -99,4 +22,4 @@ def num_unique_emails(emails)
     end.uniq.length
 end
 
-puts num_unique_emails(emails)
+num_unique_emails(emails)
