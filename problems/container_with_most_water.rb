@@ -36,29 +36,24 @@ require 'pry'
 height = [1,8,6,2,5,4,8,3,7]
 #Sol1 brute force: consider area for every possible pair of the lines and find max. Time: O(N^2), space: O(N)
 def max_area(height)
-    first = 0
-    last = height.size - 1
+    i = 0
+    j = height.length - 1
+    max_area = 0
 
-  max = 0
+    while  i < j
+        area = (j-i) * [height[i], height[j]].min
+        max_area = [max_area, area].max
 
-  while first < last
-    # how far apart the first and last are
-    diff = last - first
-    # the lowest height
-    lowest = [height[first], height[last]].min
-    # the current area
-    current = lowest * diff
-
-
-    max = [max, current].max
-    # whichever side is smaller, we move closer together
-    height[first] == lowest ? first += 1 : last -= 1
-  end
-
-  max
+        if height[i] > height[j]
+            j -= 1
+        else
+            i += 1
+        end
+    end
+    max_area
 end
 
-max_area(height)
+puts max_area(height)
 
 
 # def highest_two_values(height)
