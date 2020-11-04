@@ -1,4 +1,5 @@
 require 'pry'
+#printed
 # Given a string s, find the length of the longest substring without repeating characters.
 
 # Example 1:
@@ -45,6 +46,7 @@ while right_pointer < size do
     letters = letters - [s[left_pointer]]
     left_pointer += 1
   end
+  puts letters.inspect
 end
 max_length
 end

@@ -42,23 +42,22 @@ end
 
 group_anagrams(strs)
 
-def process_one(string)
-    key = string.chars.sort.join
-    if grouped_anagrams[key]
-        # we saw an anagram of this word already
-        # so, we append the string to the array
-        grouped_anagrams[key].push(string)
-    else
-        # we didn't see an anagram of this word
-        # so, we need to create a new key and a new array with the string
-        grouped_anagrams[key] = [string]
-    end
-end
+# def process_one(string)
+#     key = string.chars.sort.join
+#     if grouped_anagrams[key]
+#         # we saw an anagram of this word already
+#         # so, we append the string to the array
+#         grouped_anagrams[key].push(string)
+#     else
+#         # we didn't see an anagram of this word
+#         # so, we need to create a new key and a new array with the string
+#         grouped_anagrams[key] = [string]
+#     end
+# end
 
-[]
-process_one('eat')
-process_one('tea')
-process_one('cat')
-process_one('ate')
-process_one('def')
-process_one('act')
+# process_one('eat')
+# process_one('tea')
+# process_one('cat')
+# process_one('ate')
+# process_one('def')
+# process_one('act')

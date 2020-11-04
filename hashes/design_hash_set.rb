@@ -25,14 +25,13 @@ require 'pry'
 
 class MyHashSet
     attr_accessor :container
-
-    # =begin
+  # =begin
     #     Initialize your data structure here.
     # =end
-        def initialize()
-            @container = Array.new()
+        def initialize
+            @container = Array.new(10, nil)
         end
-
+        # initialize assigns an array of 10 empty indices 
 
     # =begin
     #     :type key: Integer
@@ -42,7 +41,6 @@ class MyHashSet
             @container[key] = true
         end
 
-
     # =begin
     #     :type key: Integer
     #     :rtype: Void
@@ -50,7 +48,6 @@ class MyHashSet
         def remove(key)
             @container[key] = nil
         end
-
 
     # =begin
     #     Returns true if this set contains the specified element
@@ -62,10 +59,6 @@ class MyHashSet
         end
 end
 
-binding.pry
-
-#how do i create an instance of a new hash when I run this file?
-# why is the Hash initialized as an ARRAY??
 
 
 
