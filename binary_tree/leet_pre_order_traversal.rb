@@ -1,57 +1,21 @@
 require 'pry'
 
+# ? get this error when run file: undefined method `val' for [1, nil, 2, 3]:Array (NoMethodError)
+
+root = [1, nil, 2, 3]
+
 # Definition for a binary tree node.
+    # @param {TreeNode} root
+    # @return {Integer[]}
+
 class TreeNode
-    attr_accessor :value, :left, :right
-    def initialize(value = 0, left = nil, right = nil)
-        @value = value
+    attr_accessor :val, :left, :right
+    def initialize(val = 0, left = nil, right = nil)
+        @val = val
         @left = left
         @right = right
     end
 end
-
-# @param {TreeNode} root
-# @return {Integer[]}
-
-#Ex1. Input: root = [1,null,2,3]
-# Output: [1,2,3]
-
-root = [1, nil, 2, 3]
-# how do you define a tree and the root?
-
-def recursive_preorder_traversal(root)
-    result = []
-    dfs(root, result)
-    result
-end
-
-def dfs(root, res)
-    if root
-        res << root.value
-        dfs(root.left, res) if root.left
-        dfs(root.right, res) if root.right
-    end
-end
-# how does it know that res is an array?
-
-recursive_preorder_traversal(root)
-
-
-
-# how do i get this to run?
-# error about value is because value is not method that you can run on an array which is what root is
-
-Definition for a binary tree node.
-# class TreeNode
-#     attr_accessor :val, :left, :right
-#     def initialize(val = 0, left = nil, right = nil)
-#         @val = val
-#         @left = left
-#         @right = right
-#     end
-# end
-# @param {TreeNode} root
-# @return {Integer[]}
 
 def preorder_traversal(root)
     arr = []
@@ -65,6 +29,8 @@ def preorder_traversal(root)
     right = preorder_traversal(root.right)
     arr + left + right
 end
+
+preorder_traversal(root)
 
 def inorder_traversal(root)
     arr = []
@@ -90,5 +56,3 @@ def postorder_traversal(root)
 
     left + right + arr
 end
-
-
