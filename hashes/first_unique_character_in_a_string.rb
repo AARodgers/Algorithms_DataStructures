@@ -34,4 +34,4 @@ def first_uniq_char(s)
     return -1
 end
 
-first_uniq_char(s)
+puts first_uniq_char(s)
