@@ -3,19 +3,20 @@ require 'pry'
 
 # Examples:
 
-#Indput:
+#Input:
 s = "leetcode"
 # return 0.
 
 # s = "loveleetcode"
-# return 2.
-
-
+# return 2
 # Note: You may assume the string contains only lowercase English letters.
 
 # @param {String} s
 # @return {Integer}
 
+s = "leetcode"
+# return 0
+# where are you inserting values in into the hash?
 def first_uniq_char(s)
     hash = Hash.new
 
@@ -33,4 +34,4 @@ def first_uniq_char(s)
     return -1
 end
 
-puts first_uniq_char(s)
+first_uniq_char(s)

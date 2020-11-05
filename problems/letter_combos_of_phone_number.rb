@@ -4,33 +4,75 @@ require 'pry'
 
 # A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
 
-# Example 1:
-
-# Input:
-digits = "23"
-# Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 # Example 2:
-
 # Input: digits = ""
 # Output: []
-# Example 3:
 
+# Example 3:
 # Input: digits = "2"
 # Output: ["a","b","c"]
 
 # @param {String} digits
 # @return {String[]}
 
-def letter_combinations(digits)
-    map = "- - abc def ghi jkl mno pqrs tuv wxyz".split
-    # map = ["-", "-", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+# Example 1:
+# Input:
+digits = "23"
+# Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
-    charsets = digits.chars.map { |d| map[d.to_i].chars }
-    # charsets = [["a", "b", "c"], ["d", "e", "f"]]
-    # digits is string, use chars to turn to array, ["2", "3"]
-    puts charsets.inspect
-
-    digits == "" ? [] : [''].product(*charsets).map(&:join)
-end
+# def letter_combinations(digits)
+#     map = "- - abc def ghi jkl mno pqrs tuv wxyz".split
+#     charsets = digits.chars.map { |d| map[d.to_i].chars }
+#     digits == "" ? [] : [''].product(*charsets).map(&:join)
+# end
 
 letter_combinations(digits)
+
+# map = ["-", "-", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+# charsets = [["a", "b", "c"], ["d", "e", "f"]]
+
+#the * The last parameter of a method may be preceded by an asterisk(*), which is sometimes called the 'splat' operator. This indicates that more parameters may be passed to the function. Those parameters are collected up and an array is created.
+# ** The asterisk operator may also precede an Array argument in a method call. In this case the Array will be expanded and the values passed in as if they were separated by commas.
+
+
+#Solution2:
+PHONE_NUMS = {
+
+    '2' => ["a","b","c"],
+    '3' => ["d","e","f"],
+    '4' => ["g","h","i"],
+    '5' => ["j","k","l"],
+    '6' => ["m","n",'o'],
+    '7' => ["p","q","r","s"],
+    '8' => ["t","u","v"],
+    '9' => ["w","x","y","z"]
+  }
+  def letter_combinations(digits)
+    if digits.length == 0
+        return []
+    end
+    if digits.length == 1
+        return PHONE_NUMS[digits[0]]
+    end
+    # return DIGIT_2_LETTERS[digits[0]] if digits.length == 1
+    # DIGIT_2_LETTERS[digits[0]].product(letter_combinations(digits[1..-1])).map(&:join)
+  end
+
+#Others leetcode solution:
+# @param {String} digits
+# @return {String[]}
+# DIGIT_2_LETTERS = {
+#     '2' => 'abc'.chars,
+#     '3' => 'def'.chars,
+#     '4' => 'ghi'.chars,
+#     '5' => 'jkl'.chars,
+#     '6' => 'mno'.chars,
+#     '7' => 'pqrs'.chars,
+#     '8' => 'tuv'.chars,
+#     '9' => 'wxyz'.chars
+#   }
+#   def letter_combinations(digits)
+#     return [] if digits.empty?
+#     return DIGIT_2_LETTERS[digits[0]] if digits.length == 1
+#     DIGIT_2_LETTERS[digits[0]].product(letter_combinations(digits[1..-1])).map(&:join)
+#   end
