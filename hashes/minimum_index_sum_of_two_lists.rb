@@ -6,15 +6,10 @@ require 'pry'
 # Example 1:
 
 # Input:
-list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
-list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+# list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
+# list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
 # Output: ["Shogun"]
 # Explanation: The only restaurant they both like is "Shogun".
-# Example 2:
-
-# Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["KFC","Shogun","Burger King"]
-# Output: ["Shogun"]
-# Explanation: The restaurant they both like and have the least index sum is "Shogun" with index sum 1 (0+1).
 
 # @param {String[]} list1
 # @param {String[]} list2
@@ -45,14 +40,19 @@ list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun
 #     # matches.keys.select {|match| lowest_index_sum == matches[match]}
 # end
 
-# Solution 2:
+# Example 2:
+# Input:
+list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
+list2 = ["KFC","Shogun","Burger King"]
+# Output: ["Shogun"]
+# Explanation: The restaurant they both like and have the least index sum is "Shogun" with index sum 1 (0+1).
+
 def find_restaurant(list1, list2)
     hash1 = {}
 
-    #key is the resturant, value is the index
     list1.each_with_index {|key, value| hash1[key] = value}
 
-    ans = [nil]
+    ans = []
     sum = Float::INFINITY
 
     list2.each_with_index do |name, idx|
@@ -67,14 +67,9 @@ def find_restaurant(list1, list2)
             end
         end
     end
-
     ans
 end
 
 puts find_restaurant(list1, list2)
 
 # how come if put: hash1 = list1.each_with_index {|key, value| hash1[key] = value}, it then throws error undefined method `has_key?' for ["Shogun", "Tapioca Express", "Burger King", "KFC"]:Array (NoMethodError)
-# how do you appropriatly assign a hash then?
-# nil in ans isn't necessary, so why put it there
-# when turn sum into just 1 and try running file, nothing happens why?
-#scope of hash1 and list2, how does list 2 equation know that hash1 exist? scope?

@@ -1,8 +1,6 @@
 
 require 'pry'
-# Given two arrays, write a function to compute their intersection.
-
-
+# Given two arrays, write a function to compute their intersection. Output can have repeating values.
 
 # Example 2:
 # Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
@@ -27,12 +25,6 @@ def intersect(nums1, nums2)
     result = []
     return result if nums1 == nil || nums2 == nil
 
-    # if nums2.length < nums1.length
-    #     nums1 = nums2
-    # end
-    #nums1 = [2, 2, 3]
-    #nums2 = [1, 2, 2, 1]
-
     hash1 = {}
     nums1.each do |num|
         if hash1.has_key?(num)
@@ -44,7 +36,7 @@ def intersect(nums1, nums2)
 
     #hash1 = {4=>1, 9=>1, 5=>1}
 
-    arr = nums2.each do |num2|
+    nums2.each do |num2|
         if hash1.has_key?(num2)
             result << num2 if hash1[num2] >= 1
             hash1[num2] -= 1
@@ -88,9 +80,6 @@ end
 puts intersect(nums1, nums2).inspect
 
 # why doesn't this return an array in terminal but does when you inspect? (ruby prints each element in array on new line, need to use inspect to see if array)
-
-#what is the difference between just putting result and return result? ( there is no difference)
-
 # Solution
 # If an interviewer gives you this problem, your first question should be -
 #how should I handle duplicates? Your second question, perhaps, can be about the order of inputs and outputs.

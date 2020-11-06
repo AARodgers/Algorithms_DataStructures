@@ -1,3 +1,4 @@
+require 'pry'
 require 'set'
 # Given two arrays, write a function to compute their intersection.
 
@@ -14,7 +15,7 @@ require 'set'
 # @return {Integer[]}
 
 # Intersection means common elements in the given two arrays. ... For example, A = [1,4,3,2,5,6] B = [3,2,1,5,6,7,8,10] intersection of A and B is [ 1,3,2,5,6 ].
-# Sort array and then use binary search. As given arrays are unsorted, sort one of the arrays, preferably the larger one.
+# Can sort array and then use binary search. As given arrays are unsorted, sort one of the arrays, preferably the larger one.
 
 # Input:
 nums1 = [4,9,5]
@@ -34,19 +35,22 @@ def intersection(nums1, nums2)
     nums2.each_with_object(Set.new) {|num, result| result << num if short_set.include?(num)}.to_a
 end
 
+puts intersection(nums1, nums2)
 
-#gets error: uninitialize constant Set ??? (need to make a Set class??) how to make this work?
+
+#short_set = {4, 9, 5}>
 
 # Notes:
 # each_with_object(memo) public
 # Iterates over a collection, passing the current element and the memo to the block. Handy for building up hashes or reducing collections down to one object. Examples:
+#evens = (1..10).each_with_object([]) { |i, a| a << i*2 }
+#=> [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
 # %w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
 # => {'foo' => 'FOO', 'bar' => 'BAR'}
 
 
 
-puts intersection(nums1, nums2)
 
 
 

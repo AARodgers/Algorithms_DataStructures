@@ -16,8 +16,7 @@ require 'pry'
 # @return {String[]}
 
 # Example 1:
-# Input:
-
+# Input:23
 # Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 # def letter_combinations(digits)
@@ -35,7 +34,8 @@ require 'pry'
 # ** The asterisk operator may also precede an Array argument in a method call. In this case the Array will be expanded and the values passed in as if they were separated by commas.
 
 digits = "23"
-#Solution2:
+# Input:23
+# Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
   def letter_combinations(digits)
     phone_nums = {
