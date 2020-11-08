@@ -24,7 +24,7 @@ target = 9
 
 def two_sum(nums,target)
     hash = {}
-    dic = nums.each_with_index do |n, i|
+    nums.each_with_index do |n, i|
         if hash[target - n]
             return hash[target - n], i
         end
