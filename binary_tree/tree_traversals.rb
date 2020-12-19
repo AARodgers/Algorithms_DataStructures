@@ -1,4 +1,4 @@
-
+require 'pry'
 # ? get this error when run file: undefined method `val' for [1, nil, 2, 3]:Array (NoMethodError)
 
 # root = [1, nil, 2, 3]
@@ -79,13 +79,16 @@ root = [3, 9, 20, nil, nil, 15, 7]
 
 def level_order(root, level = 0, arr = [])
   return arr if arr.count == 0
-  puts arr[level] << root.val
+  arr[level] << root.val
   level_order(root.left, arr, level + 1)
   level_order(root.right, arr, level + 1)
 end
 
-level_order(root, level = 0, arr = [])
+puts level_order(root, level = 0, arr = [])
 
+
+binding.pry
 #why can't run
 # error for pry
 # can put a value in an array at an index using arr[level]
+# in rails form_tag do you need a real IP address and how get it
