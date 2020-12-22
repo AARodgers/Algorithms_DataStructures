@@ -87,8 +87,3 @@ end
 puts level_order(root, level = 0, arr = [])
 
 
-binding.pry
-#why can't run
-# error for pry
-# can put a value in an array at an index using arr[level]
-# in rails form_tag do you need a real IP address and how get it
