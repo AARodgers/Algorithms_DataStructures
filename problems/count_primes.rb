@@ -18,7 +18,7 @@
 
 
 
-  n = 10
+  n = 1
 
   def count_primes(n)
     numbers = []
@@ -27,11 +27,8 @@
     prime_nums = []
     not_prime = []
 
-    if n == 0
-     prime_nums << 0
-    elsif n == 1
-      prime_nums << 0
-      return
+    if n == 0 || 1
+     prime_nums == []
     end
 
     nums_less.map do |n|
@@ -53,6 +50,11 @@
   end
 
   puts count_primes(n)
+
+  #Wrong:
+  #input: 10,000
+  #output: 3334
+  #expected:1229
 
   # def is_prime?(n)
   #   sqrt = Math.sqrt(n)
