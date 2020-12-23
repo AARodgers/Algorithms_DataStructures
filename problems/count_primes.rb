@@ -20,7 +20,6 @@
 
   n = 10
 
-
   def count_primes(n)
     numbers = []
     nums_less =  [*0..(n - 1)].each { |i| numbers << i }
@@ -32,6 +31,7 @@
      prime_nums << 0
     elsif n == 1
       prime_nums << 0
+      return
     end
 
     nums_less.map do |n|
@@ -41,12 +41,18 @@
         not_prime << n
       elsif (n % 2) == 0
         not_prime << n
+      elsif n == 3
+        prime_nums << 3
+      elsif n.odd? && (n % 3) == 0
+        not_prime << n
       else
         prime_nums << n
       end
     end
     prime_nums.count
   end
+
+  puts count_primes(n)
 
   # def is_prime?(n)
   #   sqrt = Math.sqrt(n)
@@ -62,7 +68,7 @@
   # end
 
 
-  puts count_primes(n)
+
 
 
   # 2.6.1 :004 > arr = [[3, 6], [6, 12]]
